@@ -22,18 +22,20 @@
 
 ---
 
-## 👥 8인 제작진 (The 8 Labyrinth Agents)
+## 👥 8인 제작진 및 공식 인사기록카드 (The 8 Labyrinth Agents)
 
-| 번호 | 이름 | 직책 | 상징 도구 | 핵심 역할 및 산출물 | 명세서 |
-|:---:|---|---|---|---|---|
-| **01** | **강도윤** | **단서채집가** | 🔍 돋보기와 단서 핀보드 | 사건 발단, 공간/기믹 설정, 사실/과학 조사 (`01_clue_research.md`) | [spec](agents/01_clue_collector.md) |
-| **02** | **백시우** | **미궁설계자** | 📐 황동 컴퍼스와 청사진 | 4계층 미로 구조도(분기/막다른 길/출구 법칙) (`02_maze_architecture.md`) | [spec](agents/02_labyrinth_architect.md) |
-| **03** | **송채은** | **인물심리가** | ⏳ 모래시계와 심리 가면 | 탐색자/용의자 결핍, 알리바이, 불신망 (`03_character_profiles.md`) | [spec](agents/03_character_psychologist.md) |
-| **04** | **민태오** | **복선·트릭엔지니어** | ⚙️ 정밀 톱니와 열쇠 | 복선-오도 전수 매트릭스, 2단 반전 설계 (`04_plot_clue_matrix.md`) | [spec](agents/04_trick_engineer.md) |
-| **05** | **서연우** | **미스터리 소설가** | ✒️ 흑요석 만년필 | 오감 묘사, 폐쇄 공간의 긴장감, 초고 집필 (`05_draft.md`) | [spec](agents/05_mystery_novelist.md) |
-| **06** | **안하린** | **서스펜스 조율사** | ✂️ 은빛 가위와 메트로놈 | 텐션 완급 조절, 단서 명도 교정, 대화 정련 (`06_pacing_edited.md`) | [spec](agents/06_suspense_editor.md) |
-| **07** | **고진혁** | **논리·미궁 감정관** | ⚖️ 청동 천칭과 진실 촛대 | 페어플레이 검증, 타임라인/결함 전수 심사 (`07_critique_evaluation.md`) | [spec](agents/07_logic_examiner.md) |
-| **08** | **반채현** | **미로 총괄편집장** | 🗝️ 황금 열쇠와 실링 인장 | Antigravity CLI 오케스트레이션, 최종 출간 (`08_final_novel.md`) | [spec](agents/08_chief_editor.md) |
+> 🗂️ 전체 8인의 상세 인사기록카드는 **[docs/PERSONNEL_RECORDS.md](docs/PERSONNEL_RECORDS.md)**에서 확인하실 수 있습니다.
+
+| 사번 | 사진 | 이름 | 직책 | 상징 도구 | 전담 산출물 | 명세서 |
+|:---:|:---:|---|---|---|---|---|
+| **MSO-01** | <img src="site/assets/agents/01_doyoon_kang.jpg" width="48" height="48" style="border-radius:6px;"> | **강도윤** | **단서채집가** | 🔍 돋보기와 단서 핀보드 | 사건 발단, 공간/기믹 설정, 사실/과학 조사 (`01_clue_research.md`) | [spec](agents/01_clue_collector.md) |
+| **MSO-02** | <img src="site/assets/agents/02_siwoo_baek.jpg" width="48" height="48" style="border-radius:6px;"> | **백시우** | **미궁설계자** | 📐 황동 컴퍼스와 청사진 | 4계층 미로 구조도(분기/막다른 길/출구 법칙) (`02_maze_architecture.md`) | [spec](agents/02_labyrinth_architect.md) |
+| **MSO-03** | <img src="site/assets/agents/03_chaeeun_song.jpg" width="48" height="48" style="border-radius:6px;"> | **송채은** | **인물심리가** | ⏳ 모래시계와 심리 가면 | 탐색자/용의자 결핍, 알리바이, 불신망 (`03_character_profiles.md`) | [spec](agents/03_character_psychologist.md) |
+| **MSO-04** | <img src="site/assets/agents/04_taeo_min.jpg" width="48" height="48" style="border-radius:6px;"> | **민태오** | **트릭엔지니어** | ⚙️ 정밀 톱니와 열쇠 | 복선-오도 전수 매트릭스, 2단 반전 설계 (`04_plot_clue_matrix.md`) | [spec](agents/04_trick_engineer.md) |
+| **MSO-05** | <img src="site/assets/agents/05_yeonwoo_seo.jpg" width="48" height="48" style="border-radius:6px;"> | **서연우** | **미스터리 소설가** | ✒️ 흑요석 만년필 | 오감 묘사, 폐쇄 공간의 긴장감, 초고 집필 (`05_draft.md`) | [spec](agents/05_mystery_novelist.md) |
+| **MSO-06** | <img src="site/assets/agents/06_harin_ahn.jpg" width="48" height="48" style="border-radius:6px;"> | **안하린** | **서스펜스 조율사** | ✂️ 은빛 가위와 메트로놈 | 텐션 완급 조절, 단서 명도 교정, 대화 정련 (`06_pacing_edited.md`) | [spec](agents/06_suspense_editor.md) |
+| **MSO-07** | <img src="site/assets/agents/07_jinhyuk_ko.jpg" width="48" height="48" style="border-radius:6px;"> | **고진혁** | **논리·미궁 감정관** | ⚖️ 청동 천칭과 진실 촛대 | 페어플레이 검증, 타임라인/결함 전수 심사 (`07_critique_evaluation.md`) | [spec](agents/07_logic_examiner.md) |
+| **MSO-08** | <img src="site/assets/agents/08_chaehyun_ban.jpg" width="48" height="48" style="border-radius:6px;"> | **반채현** | **미로 총괄편집장** | 🗝️ 황금 열쇠와 실링 인장 | Antigravity CLI 오케스트레이션, 최종 출간 (`08_final_novel.md`) | [spec](agents/08_chief_editor.md) |
 
 ---
 

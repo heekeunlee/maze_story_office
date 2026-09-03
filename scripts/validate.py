@@ -19,6 +19,7 @@ required_core = [
     "docs/WORKFLOW.md",
     "docs/QUALITY.md",
     "docs/ANTIGRAVITY_GUIDE.md",
+    "docs/PERSONNEL_RECORDS.md",
     ".agents/rules/fair-play-rule.md",
     ".agents/rules/maze-logic-rule.md",
     ".agents/skills/maze-story-craft/SKILL.md",
@@ -26,6 +27,24 @@ required_core = [
     "site/.nojekyll",
     ".github/workflows/pages.yml",
 ]
+
+# 1-1. 에이전트 프로필 이미지 검증
+agent_photos = [
+    "01_doyoon_kang.jpg",
+    "02_siwoo_baek.jpg",
+    "03_chaeeun_song.jpg",
+    "04_taeo_min.jpg",
+    "05_yeonwoo_seo.jpg",
+    "06_harin_ahn.jpg",
+    "07_jinhyuk_ko.jpg",
+    "08_chaehyun_ban.jpg",
+]
+
+for photo in agent_photos:
+    target = ROOT / "site" / "assets" / "agents" / photo
+    if not target.exists():
+        errors.append(f"[ERROR] 에이전트 사진 누락: site/assets/agents/{photo}")
+
 
 for file_path in required_core:
     target = ROOT / file_path

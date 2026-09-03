@@ -59,13 +59,13 @@
 
     /* Header & Navigation */
     header {
-      padding: 24px 0;
+      padding: 20px 0;
       border-bottom: 1px solid var(--border-color);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(9, 13, 22, 0.85);
+      background: rgba(9, 13, 22, 0.9);
     }
 
     .header-inner {
@@ -83,14 +83,14 @@
     }
 
     .logo-icon {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       background: linear-gradient(135deg, var(--accent-cyan), #1e40af);
-      border-radius: 8px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 22px;
       box-shadow: 0 0 15px var(--accent-cyan-glow);
     }
 
@@ -125,7 +125,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 80px 0 60px;
+      padding: 70px 0 50px;
       text-align: center;
       position: relative;
     }
@@ -134,7 +134,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 9999px;
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.3);
@@ -158,8 +158,8 @@
     .hero p {
       font-size: 1.15rem;
       color: var(--text-muted);
-      max-width: 760px;
-      margin: 0 auto 36px;
+      max-width: 780px;
+      margin: 0 auto 30px;
       line-height: 1.8;
       font-family: var(--font-serif);
     }
@@ -169,13 +169,14 @@
       color: var(--accent-gold);
       margin-bottom: 30px;
       display: block;
-      font-size: 1rem;
+      font-size: 1.05rem;
     }
 
     .cta-group {
       display: flex;
       justify-content: center;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -212,7 +213,7 @@
 
     .btn-secondary:hover {
       background: var(--bg-card-hover);
-      border-color: var(--text-muted);
+      border-color: var(--accent-cyan);
     }
 
     /* Section Title */
@@ -222,7 +223,7 @@
     }
 
     .section-header h3 {
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-family: var(--font-serif);
       color: #fff;
       margin-bottom: 8px;
@@ -233,67 +234,118 @@
       font-size: 0.95rem;
     }
 
-    /* 8 Agents Grid */
+    /* 8 Agents Grid - Personnel Record Cards */
     .agents-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
       margin-bottom: 60px;
     }
 
     .agent-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 24px;
-      transition: all 0.3s ease;
-      position: relative;
+      border-radius: 16px;
       overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
 
     .agent-card:hover {
       border-color: var(--accent-cyan);
-      box-shadow: 0 8px 25px var(--accent-cyan-glow);
-      transform: translateY(-4px);
+      box-shadow: 0 12px 30px var(--accent-cyan-glow);
+      transform: translateY(-6px);
       background: var(--bg-card-hover);
     }
 
-    .agent-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
+    .agent-img-wrap {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #000;
     }
 
-    .agent-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: #1e293b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      border: 1px solid var(--border-highlight);
+    .agent-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s ease;
     }
 
-    .agent-title h4 {
-      font-size: 1.1rem;
-      color: #fff;
+    .agent-card:hover .agent-img {
+      transform: scale(1.05);
     }
 
-    .agent-title span {
-      font-size: 0.8rem;
+    .agent-code-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--accent-cyan);
       color: var(--accent-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .agent-status-stamp {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--accent-emerald);
+      color: var(--accent-emerald);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .agent-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .agent-name-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .agent-name-row h4 {
+      font-size: 1.25rem;
+      color: #fff;
+      font-family: var(--font-serif);
+    }
+
+    .agent-dept {
+      font-size: 0.78rem;
+      color: var(--text-muted);
       font-family: var(--font-mono);
     }
 
     .agent-role {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--accent-gold);
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .agent-quote {
@@ -301,20 +353,27 @@
       color: var(--text-muted);
       font-style: italic;
       line-height: 1.5;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       font-family: var(--font-serif);
       border-left: 2px solid var(--accent-cyan);
-      padding-left: 8px;
+      padding-left: 10px;
+      flex-grow: 1;
     }
 
     .agent-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding-top: 12px;
       font-size: 0.78rem;
       color: var(--text-muted);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-family: var(--font-mono);
+    }
+
+    .agent-btn-view {
+      color: var(--accent-cyan);
+      font-weight: 600;
     }
 
     /* Workflow Pipeline */
@@ -328,9 +387,8 @@
 
     .pipeline-steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 16px;
-      position: relative;
     }
 
     .pipeline-step {
@@ -348,8 +406,8 @@
     }
 
     .step-num {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: var(--accent-cyan);
       color: #000;
@@ -370,7 +428,7 @@
     }
 
     .step-agent {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       color: var(--accent-cyan);
       margin-bottom: 8px;
     }
@@ -419,12 +477,6 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       flex-wrap: wrap;
-    }
-
-    .story-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .score-badge {
@@ -480,9 +532,7 @@
     .filter-tag {
       padding: 4px 10px;
       border-radius: 4px;
-      cursor: pointer;
       font-family: var(--font-mono);
-      transition: opacity 0.2s;
     }
 
     .filter-tag.clue { background: rgba(56, 189, 248, 0.2); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
@@ -522,7 +572,6 @@
       border-bottom: 2px solid var(--accent-cyan);
       padding: 1px 4px;
       border-radius: 2px;
-      cursor: help;
     }
 
     .highlight-herring {
@@ -530,7 +579,6 @@
       border-bottom: 2px solid var(--accent-crimson);
       padding: 1px 4px;
       border-radius: 2px;
-      cursor: help;
     }
 
     .highlight-twist {
@@ -538,7 +586,6 @@
       border-bottom: 2px solid var(--accent-gold);
       padding: 1px 4px;
       border-radius: 2px;
-      cursor: help;
     }
 
     /* Terminal Section */
@@ -653,15 +700,15 @@
       text-decoration: none;
     }
 
-    /* Modal */
+    /* Personnel Record Card Modal */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(8px);
+      background: rgba(4, 7, 14, 0.85);
+      backdrop-filter: blur(10px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -670,37 +717,157 @@
     }
 
     .modal-content {
-      background: var(--bg-card);
+      background: #0f172a;
       border: 1px solid var(--accent-cyan);
-      border-radius: 16px;
-      max-width: 650px;
+      border-radius: 20px;
+      max-width: 780px;
       width: 100%;
-      max-height: 85vh;
+      max-height: 90vh;
       overflow-y: auto;
-      padding: 30px;
       position: relative;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px var(--accent-cyan-glow);
+    }
+
+    .modal-header-bar {
+      background: linear-gradient(90deg, #1e293b, #0f172a);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       background: transparent;
       border: none;
       color: var(--text-muted);
       font-size: 1.5rem;
       cursor: pointer;
+      line-height: 1;
     }
 
     .modal-close:hover {
       color: #fff;
     }
 
+    .dossier-body {
+      padding: 30px;
+    }
+
+    .dossier-top {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .dossier-photo-frame {
+      border: 2px solid var(--accent-cyan);
+      border-radius: 12px;
+      overflow: hidden;
+      height: 230px;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .dossier-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dossier-info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .dossier-info-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .dossier-info-table td.label {
+      width: 110px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .dossier-info-table td.value {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .dossier-quote-box {
+      background: #090d16;
+      border-left: 3px solid var(--accent-gold);
+      padding: 14px 18px;
+      border-radius: 6px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .dossier-section-title {
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .dossier-skills-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 24px;
+    }
+
+    .dossier-skills-list li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 4px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .dossier-skills-list li::before {
+      content: "▸";
+      color: var(--accent-cyan);
+    }
+
+    .dossier-hr-review {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px dashed var(--accent-cyan);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
     @media (max-width: 768px) {
       .hero h2 { font-size: 2rem; }
       .story-body { padding: 20px; }
       .story-header { padding: 20px; }
+      .dossier-top { grid-template-columns: 1fr; }
+      .dossier-photo-frame { height: 260px; max-width: 220px; margin: 0 auto; }
     }
   </style>
 </head>
@@ -717,7 +884,7 @@
         </div>
       </a>
       <nav>
-        <a href="#agents">8인 제작진</a>
+        <a href="#agents">8인 인사기록</a>
         <a href="#workflow">워크플로</a>
         <a href="#reader">작품 열람</a>
         <a href="#terminal">CLI 실행</a>
@@ -737,153 +904,185 @@
         미궁 설계, 인물 심리, 복선 매트릭스, 집필, 서스펜스 조율, 논리 감정을 분담하여 완벽한 페어플레이 미스터리 소설을 짓는 AI 창작소입니다.
       </p>
       <div class="cta-group">
-        <a href="#reader" class="btn btn-primary">📖 마스터피스 No.01 읽기</a>
-        <a href="#workflow" class="btn btn-secondary">🔍 8단계 제작 공정 보기</a>
+        <a href="#agents" class="btn btn-primary">🗂️ 8인 공식 인사기록카드 보기</a>
+        <a href="#reader" class="btn btn-secondary">📖 마스터피스 No.01 읽기</a>
       </div>
     </div>
   </section>
 
-  <!-- 8 Agents Section -->
+  <!-- 8 Agents Section (Personnel Record Cards) -->
   <section class="container" id="agents">
     <div class="section-header">
-      <h3>🏛️ 8인의 미로 집현실 (The 8 Labyrinth Agents)</h3>
-      <p>각 에이전트 카드를 클릭하여 상세 페르소나와 품질 게이트 지침을 확인하세요.</p>
+      <h3>🏛️ 8인의 공식 인사기록카드 (Personnel Record Dossiers)</h3>
+      <p>각 에이전트 카드를 클릭하여 사진, 상세 경력, 전문 스킬 및 인사 평가서를 확인하세요.</p>
     </div>
 
     <div class="agents-grid">
       <!-- Agent 01 -->
       <div class="agent-card" onclick="openAgentModal(0)">
-        <div class="agent-header">
-          <div class="agent-icon">🔍</div>
-          <div class="agent-title">
-            <h4>강도윤</h4>
-            <span>01_clue_collector</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/01_doyoon_kang.jpg" alt="강도윤 단서채집가" class="agent-img">
+          <span class="agent-code-badge">MSO-01-CLUE</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">단서채집가 (Clue Investigator)</div>
-        <div class="agent-quote">"진실은 가장 사소한 균열과 먼지 쌓인 서랍 구석에 숨어 있다."</div>
-        <div class="agent-footer">
-          <span>도구: 돋보기 & 핀보드</span>
-          <span>산출: 01_clue_research.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>강도윤</h4>
+            <span class="agent-dept">배경수사과</span>
+          </div>
+          <div class="agent-role">🔍 단서채집가 (Clue Investigator)</div>
+          <div class="agent-quote">"진실은 가장 사소한 균열과 먼지 쌓인 서랍 구석에 숨어 있다."</div>
+          <div class="agent-footer">
+            <span>도구: 돋보기 & 핀보드</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 02 -->
       <div class="agent-card" onclick="openAgentModal(1)">
-        <div class="agent-header">
-          <div class="agent-icon">📐</div>
-          <div class="agent-title">
-            <h4>백시우</h4>
-            <span>02_labyrinth_architect</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/02_siwoo_baek.jpg" alt="백시우 미궁설계자" class="agent-img">
+          <span class="agent-code-badge">MSO-02-ARCH</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">미궁설계자 (Labyrinth Architect)</div>
-        <div class="agent-quote">"모든 미로는 질문이며, 직면한 자만이 출구의 문을 연다."</div>
-        <div class="agent-footer">
-          <span>도구: 황동 컴퍼스</span>
-          <span>산출: 02_maze_architecture.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>백시우</h4>
+            <span class="agent-dept">공간위상학부</span>
+          </div>
+          <div class="agent-role">📐 미궁설계자 (Labyrinth Architect)</div>
+          <div class="agent-quote">"모든 미로는 질문이며, 직면한 자만이 출구의 문을 연다."</div>
+          <div class="agent-footer">
+            <span>도구: 황동 컴퍼스</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 03 -->
       <div class="agent-card" onclick="openAgentModal(2)">
-        <div class="agent-header">
-          <div class="agent-icon">⏳</div>
-          <div class="agent-title">
-            <h4>송채은</h4>
-            <span>03_character_psychologist</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/03_chaeeun_song.jpg" alt="송채은 인물심리가" class="agent-img">
+          <span class="agent-code-badge">MSO-03-PSYC</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">인물심리가 (Mind Profiler)</div>
-        <div class="agent-quote">"가장 정교한 미로는 언제나 인간의 마음속에 지어져 있다."</div>
-        <div class="agent-footer">
-          <span>도구: 모래시계 & 가면</span>
-          <span>산출: 03_character_profiles.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>송채은</h4>
+            <span class="agent-dept">범죄심리과</span>
+          </div>
+          <div class="agent-role">⏳ 인물심리가 (Mind Profiler)</div>
+          <div class="agent-quote">"가장 정교한 미로는 언제나 인간의 마음속에 지어져 있다."</div>
+          <div class="agent-footer">
+            <span>도구: 모래시계 & 가면</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 04 -->
       <div class="agent-card" onclick="openAgentModal(3)">
-        <div class="agent-header">
-          <div class="agent-icon">⚙️</div>
-          <div class="agent-title">
-            <h4>민태오</h4>
-            <span>04_trick_engineer</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/04_taeo_min.jpg" alt="민태오 복선트릭엔지니어" class="agent-img">
+          <span class="agent-code-badge">MSO-04-TRICK</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">복선·트릭엔지니어 (Trick Engineer)</div>
-        <div class="agent-quote">"완벽한 트릭은 독자 스스로 잘못된 길을 택하게 하는 톱니바퀴다."</div>
-        <div class="agent-footer">
-          <span>도구: 정밀 기어 & 열쇠</span>
-          <span>산출: 04_plot_clue_matrix.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>민태오</h4>
+            <span class="agent-dept">복선기구공학부</span>
+          </div>
+          <div class="agent-role">⚙️ 트릭엔지니어 (Trick Engineer)</div>
+          <div class="agent-quote">"완벽한 트릭은 독자 스스로 잘못된 길을 택하게 하는 톱니바퀴다."</div>
+          <div class="agent-footer">
+            <span>도구: 정밀 기어 & 열쇠</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 05 -->
       <div class="agent-card" onclick="openAgentModal(4)">
-        <div class="agent-header">
-          <div class="agent-icon">✒️</div>
-          <div class="agent-title">
-            <h4>서연우</h4>
-            <span>05_mystery_novelist</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/05_yeonwoo_seo.jpg" alt="서연우 미스터리 소설가" class="agent-img">
+          <span class="agent-code-badge">MSO-05-NOVEL</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">미스터리 소설가 (Suspense Novelist)</div>
-        <div class="agent-quote">"문장은 독자의 호흡을 쥐고 흔들어야 한다. 발소리 하나까지."</div>
-        <div class="agent-footer">
-          <span>도구: 흑요석 만년필</span>
-          <span>산출: 05_draft.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>서연우</h4>
+            <span class="agent-dept">창작집필실</span>
+          </div>
+          <div class="agent-role">✒️ 미스터리 소설가 (Suspense Novelist)</div>
+          <div class="agent-quote">"문장은 독자의 호흡을 쥐고 흔들어야 한다. 발소리 하나까지."</div>
+          <div class="agent-footer">
+            <span>도구: 흑요석 만년필</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 06 -->
       <div class="agent-card" onclick="openAgentModal(5)">
-        <div class="agent-header">
-          <div class="agent-icon">✂️</div>
-          <div class="agent-title">
-            <h4>안하린</h4>
-            <span>06_suspense_editor</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/06_harin_ahn.jpg" alt="안하린 서스펜스 조율사" class="agent-img">
+          <span class="agent-code-badge">MSO-06-PACE</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">서스펜스 조율사 (Pacing Editor)</div>
-        <div class="agent-quote">"문장의 길이를 줄이는 것만으로도 독자의 심장은 두 배 뛴다."</div>
-        <div class="agent-footer">
-          <span>도구: 은빛 가위 & 메트로놈</span>
-          <span>산출: 06_pacing_edited.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>안하린</h4>
+            <span class="agent-dept">텐션교정부</span>
+          </div>
+          <div class="agent-role">✂️ 서스펜스 조율사 (Pacing Editor)</div>
+          <div class="agent-quote">"문장의 길이를 줄이는 것만으로도 독자의 심장은 두 배 뛴다."</div>
+          <div class="agent-footer">
+            <span>도구: 은빛 가위 & 메트로놈</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 07 -->
       <div class="agent-card" onclick="openAgentModal(6)">
-        <div class="agent-header">
-          <div class="agent-icon">⚖️</div>
-          <div class="agent-title">
-            <h4>고진혁</h4>
-            <span>07_logic_examiner</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/07_jinhyuk_ko.jpg" alt="고진혁 논리감정관" class="agent-img">
+          <span class="agent-code-badge">MSO-07-EXAM</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">논리·미궁 감정관 (Logic Examiner)</div>
-        <div class="agent-quote">"한 톨의 모순도 용납하지 않는다. 완벽한 논리 위에 선 미로."</div>
-        <div class="agent-footer">
-          <span>도구: 청동 천칭 & 촛대</span>
-          <span>산출: 07_critique_evaluation.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>고진혁</h4>
+            <span class="agent-dept">품질검사원</span>
+          </div>
+          <div class="agent-role">⚖️ 논리감정관 (Logic Examiner)</div>
+          <div class="agent-quote">"한 톨의 모순도 용납하지 않는다. 완벽한 논리 위에 선 미로."</div>
+          <div class="agent-footer">
+            <span>도구: 청동 천칭 & 촛대</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
 
       <!-- Agent 08 -->
       <div class="agent-card" onclick="openAgentModal(7)">
-        <div class="agent-header">
-          <div class="agent-icon">🗝️</div>
-          <div class="agent-title">
-            <h4>반채현</h4>
-            <span>08_chief_editor</span>
-          </div>
+        <div class="agent-img-wrap">
+          <img src="assets/agents/08_chaehyun_ban.jpg" alt="반채현 미로총괄편집장" class="agent-img">
+          <span class="agent-code-badge">MSO-08-DIRECT</span>
+          <span class="agent-status-stamp">ACTIVE</span>
         </div>
-        <div class="agent-role">미로 총괄편집장 (Labyrinth Director)</div>
-        <div class="agent-quote">"미로의 마지막 벽이 허물어질 때, 독자는 새 세계의 입구에 선다."</div>
-        <div class="agent-footer">
-          <span>도구: 황금 열쇠 & 실링 인장</span>
-          <span>산출: 08_final_novel.md</span>
+        <div class="agent-card-body">
+          <div class="agent-name-row">
+            <h4>반채현</h4>
+            <span class="agent-dept">중앙디렉터실</span>
+          </div>
+          <div class="agent-role">🗝️ 총괄편집장 (Labyrinth Director)</div>
+          <div class="agent-quote">"미로의 마지막 벽이 허물어질 때, 독자는 새 세계의 입구에 선다."</div>
+          <div class="agent-footer">
+            <span>도구: 황금 열쇠 & 실링 인장</span>
+            <span class="agent-btn-view">인사카드 열람 ↗</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1057,141 +1256,236 @@
     <div class="container">
       <p>미로공방 (Maze Story Office) — Powered by <strong>Google Antigravity CLI (agy)</strong></p>
       <p style="margin-top: 6px; font-size: 0.8rem;">
-        Designed with 8 Autonomous Subagents • <a href="https://github.com/heekeunlee/maze_story_office" target="_blank">heekeunlee/maze_story_office</a>
+        Official Personnel Dossiers & 8 Subagents • <a href="https://github.com/heekeunlee/maze_story_office" target="_blank">heekeunlee/maze_story_office</a>
       </p>
     </div>
   </footer>
 
-  <!-- Modal for Agent Details -->
+  <!-- Modal for Personnel Record Card -->
   <div class="modal-overlay" id="agentModal" onclick="closeAgentModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeAgentModal()">&times;</button>
-      <div id="modalBody"></div>
+      <div class="modal-header-bar">
+        <span class="modal-header-title">🗂️ 미로공방 공식 인사기록카드 (PERSONNEL DOSSIER)</span>
+        <button class="modal-close" onclick="closeAgentModal()">&times;</button>
+      </div>
+      <div class="dossier-body" id="modalBody">
+        <!-- Injected via JS -->
+      </div>
     </div>
   </div>
 
   <script>
-    // 8 Agents Data
+    // 8 Agents Full Personnel Data
     const agentsData = [
       {
-        num: "01",
-        name: "강도윤",
+        code: "MSO-01-CLUE",
+        name: "강도윤 (Do-yoon Kang)",
         role: "단서채집가 (Clue Investigator)",
+        dept: "배경수사과 (Investigation Div.)",
         tool: "🔍 돋보기와 단서 핀보드",
+        photo: "assets/agents/01_doyoon_kang.jpg",
         file: "agents/01_clue_collector.md",
         output: "01_clue_research.md",
+        gate: "단서 조사 게이트 (5대 핵심 단서)",
         quote: "진실은 언제나 가장 사소한 균열과 먼지 쌓인 서랍 구석에 숨어 있다.",
         desc: "사건의 물리적/공간적 배경(폐쇄된 저택, 시계탑, 뫼비우스 서가 등)과 사건의 단초가 되는 핵심 단서 5종, 과학/암호/기계공학 등 전문 지식을 수집하고 검증합니다.",
-        checklist: ["오감 자극형 단서 5종 이상 확보", "공간의 물리적 폐쇄성 및 방향 상실 메커니즘 검증", "전문 지식의 사실성 확인"]
+        skills: [
+          "현장 감식 및 오감 자극형 단서 5종 전수 발굴",
+          "전문 과학, 기계공학 및 독물학적 사실 고증",
+          "밀실 및 폐쇄 환경의 건축학적 제약 조건 분석"
+        ],
+        hrReview: "사소한 디테일 하나도 허투루 넘기지 않는 집요한 관찰력의 소유자. 그가 수집한 단서 핀보드는 미궁 설계의 가장 튼튼한 주춧돌이 됩니다."
       },
       {
-        num: "02",
-        name: "백시우",
+        code: "MSO-02-ARCH",
+        name: "백시우 (Si-woo Baek)",
         role: "미궁설계자 (Labyrinth Architect)",
+        dept: "공간위상학부 (Spatial Topology Dept.)",
         tool: "📐 황동 컴퍼스와 청사진",
+        photo: "assets/agents/02_siwoo_baek.jpg",
         file: "agents/02_labyrinth_architect.md",
         output: "02_maze_architecture.md",
+        gate: "Gate 1 (아키텍처 게이트)",
         quote: "모든 미로는 질문이며, 오직 스스로를 직면한 자만이 출구의 문을 연다.",
         desc: "4계층 미로 모델(물리/논리/심리/철학)을 바탕으로 진입로, 중앙 심연(Centrum), 분기점, 막다른 길(Dead End), 탈출 조건을 설계하고 중심 테마 질문을 확립합니다.",
-        checklist: ["미로의 출구가 논리적으로 도달 가능한가?", "막다른 길에 의미 있는 드라마와 단서 배치", "공간 구조와 주제 의식의 정합성"]
+        skills: [
+          "4계층(물리·논리·심리·철학) 미로 모델링",
+          "동심원 회전 격벽 및 다중 분기 청사진 설계",
+          "시간제한 기반의 시공간 미로 변형 시퀀스 구축"
+        ],
+        hrReview: "공간을 단순한 배경이 아니라 살아 숨 쉬는 유기체이자 하나의 거대한 수수께끼로 변모시키는 공간 미학의 천재입니다."
       },
       {
-        num: "03",
-        name: "송채은",
+        code: "MSO-03-PSYC",
+        name: "송채은 (Chae-eun Song)",
         role: "인물심리가 (Mind Profiler)",
+        dept: "범죄심리과 (Criminal Psychology Div.)",
         tool: "⏳ 모래시계와 심리 가면",
+        photo: "assets/agents/03_chaeeun_song.jpg",
         file: "agents/03_character_psychologist.md",
         output: "03_character_profiles.md",
+        gate: "인물 심리 게이트",
         quote: "가장 정교한 미로는 언제나 인간의 마음속에 지어져 있다.",
         desc: "미궁에 갇힌 탐색자와 용의자 3~5인의 절박한 욕망, 숨겨진 결핍, 거짓말의 동기, 알리바이 네트워크, 상호 불신망을 프로파일링합니다.",
-        checklist: ["평면적 악역 배제 및 입체적 동기 부여", "거짓 알리바이의 심리적 타당성 검증", "압박 상황에서의 방어기제 붕괴 과정 설계"]
+        skills: [
+          "등장인물 3~5인의 결핍, 욕망 및 트라우마 프로파일링",
+          "알리바이 허점 및 거짓말 동기 네트워크 매핑",
+          "극한 폐쇄 환경에서의 심리 방어기제 붕괴 모델링"
+        ],
+        hrReview: "냉철한 통찰력으로 인물의 내면 깊숙한 상처를 포착하며, 캐릭터 간의 갈등을 팽팽한 활시위처럼 당겨놓는 심리전의 대가입니다."
       },
       {
-        num: "04",
-        name: "민태오",
+        code: "MSO-04-TRICK",
+        name: "민태오 (Tae-oh Min)",
         role: "복선·트릭엔지니어 (Trick Engineer)",
+        dept: "복선기구공학부 (Trick Engineering Dept.)",
         tool: "⚙️ 정밀 톱니와 열쇠",
+        photo: "assets/agents/04_taeo_min.jpg",
         file: "agents/04_trick_engineer.md",
         output: "04_plot_clue_matrix.md",
+        gate: "Gate 2 (트릭 무결성 게이트)",
         quote: "완벽한 트릭은 독자 스스로 잘못된 길을 택하게 만드는 정밀한 톱니바퀴다.",
         desc: "복선(Clue)과 오도(Red Herring)의 전수 매트릭스를 제작하고, 챕터별 정보 노출 시점과 충격적인 2단 반전(Double Twist)을 구조화합니다.",
-        checklist: ["본문 복선의 100% 회수 원칙 준수", "오도(Red Herring)의 페어플레이 공정성", "1차 표면 반전 및 2차 근원 반전 연동"]
+        skills: [
+          "복선-오도(Red Herring) 전수 매트릭스 100% 회수 설계",
+          "1차 표면 반전 및 2차 근원 반전의 2단 트위스트 구축",
+          "녹스 10계 기반의 페어플레이 무결성 감수"
+        ],
+        hrReview: "시계태엽처럼 빈틈없이 맞물리는 플롯의 연쇄를 창조하는 엔지니어. 그의 매트릭스를 통과한 트릭은 결코 오류를 일으키지 않습니다."
       },
       {
-        num: "05",
-        name: "서연우",
+        code: "MSO-05-NOVEL",
+        name: "서연우 (Yeon-woo Seo)",
         role: "미스터리 소설가 (Suspense Novelist)",
+        dept: "창작집필실 (Creative Writing Studio)",
         tool: "✒️ 흑요석 만년필",
+        photo: "assets/agents/05_yeonwoo_seo.jpg",
         file: "agents/05_mystery_novelist.md",
         output: "05_draft.md",
-        quote: "문장은 독자의 호흡을 쥐고 흔들어야 한다. 미로 속 발소리 하나까지.",
+        gate: "초고 집필 게이트 (6,000자 이상)",
+        quote: "문장은 독자의 호흡을 쥐고 흔들어야 한다. 미로 속 발소리 하나까지 생생하게.",
         desc: "설계도와 매트릭스를 완벽히 준수하여 오감의 생생함과 긴박한 호흡을 담아 6,000자 이상의 본문 초고를 집필합니다.",
-        checklist: ["폐쇄 공간의 오감 묘사 극대화", "단서의 자연스러운 배경 위장", "추리와 생존 위기의 절묘한 완급 조절"]
+        skills: [
+          "폐쇄 공간의 서늘한 공기와 오감 묘사 극대화",
+          "사건의 배경 속에 복선을 자연스럽게 은폐하는 서술 기법",
+          "추리와 생존 위기의 박진감 넘치는 씬 전개"
+        ],
+        hrReview: "독자를 압도하는 흡인력 있는 문장력과 서늘한 긴장감을 직조하는 작가. 미궁 속을 직접 걷는 듯한 착각을 불러일으킵니다."
       },
       {
-        num: "06",
-        name: "안하린",
+        code: "MSO-06-PACE",
+        name: "안하린 (Ha-rin Ahn)",
         role: "서스펜스 조율사 (Pacing Editor)",
+        dept: "텐션교정부 (Tension Calibration Dept.)",
         tool: "✂️ 은빛 가위와 메트로놈",
+        photo: "assets/agents/06_harin_ahn.jpg",
         file: "agents/06_suspense_editor.md",
         output: "06_pacing_edited.md",
+        gate: "서스펜스 조율 게이트",
         quote: "문장의 길이를 줄이는 것만으로도 독자의 심장은 두 배 빠르게 뛴다.",
         desc: "초고의 리듬감, 서스펜스 텐션, 시점(POV) 일관성, 대화의 날카로움을 극한으로 정련하여 독자의 몰입을 유지합니다.",
-        checklist: ["긴박한 구간의 단문화 및 속도감 구현", "시점의 순도 유지 및 군더더기 묘사 제거", "단서 힌트의 명도 최적화"]
+        skills: [
+          "긴박한 구간의 단문화 및 맥박수를 올리는 속도감 구현",
+          "전지적 시점 개입 차단 및 주인공 1인칭 오감 밀착",
+          "단서 힌트의 명도(Brightness) 최적 조율"
+        ],
+        hrReview: "문장의 낭비를 단 한 줄도 허락하지 않는 칼날 같은 편집자. 그녀의 손을 거친 원고는 독자의 맥박수를 완벽히 통제합니다."
       },
       {
-        num: "07",
-        name: "고진혁",
+        code: "MSO-07-EXAM",
+        name: "고진혁 (Jin-hyuk Ko)",
         role: "논리·미궁 감정관 (Logic Examiner)",
+        dept: "품질검사원 (Logic Inspection Bureau)",
         tool: "⚖️ 청동 천칭과 진실 촛대",
+        photo: "assets/agents/07_jinhyuk_ko.jpg",
         file: "agents/07_logic_examiner.md",
         output: "07_critique_evaluation.md",
-        quote: "한 톨의 모순도 용납하지 않는다. 완벽한 논리 위에 선 미로만이 독자를 굴복시킨다.",
+        gate: "Gate 3 (품질 게이트: 80점 이상)",
+        quote: "한 톨의 모순도 용납하지 않는다. 완벽한 논리 위에 세워진 미로만이 독자를 굴복시킨다.",
         desc: "100점 만점 품질 루브릭을 적용하여 타임라인 결함, 알리바이 모순, 미회수 복선을 전수 조사하며 80점 이상 시 PASS를 부여합니다.",
-        checklist: ["페어플레이 및 논리 무결성 25점", "타임라인 및 물리 법칙 전수 대조", "미회수 복선 0건 필수"]
+        skills: [
+          "타임라인, 동선 및 물리적 도구 사용의 무결성 전수 감사",
+          "100점 만점 7대 루브릭 정밀 정량 채점",
+          "치명 결함(Plot Hole) 0건 원칙 엄수"
+        ],
+        hrReview: "냉정하고 타협 없는 엄격함으로 미로공방의 자존심을 수호하는 문지기. 그의 인정을 받은 작품만이 세상의 빛을 볼 수 있습니다."
       },
       {
-        num: "08",
-        name: "반채현",
+        code: "MSO-08-DIRECT",
+        name: "반채현 (Chae-hyun Ban)",
         role: "미로 총괄편집장 (Labyrinth Director)",
+        dept: "중앙디렉터실 (Central Director's Office)",
         tool: "🗝️ 황금 열쇠와 실링 인장",
+        photo: "assets/agents/08_chaehyun_ban.jpg",
         file: "agents/08_chief_editor.md",
         output: "08_final_novel.md",
+        gate: "최종 출간 승인 및 아카이빙",
         quote: "미로의 마지막 벽이 허물어질 때, 독자는 비로소 새로운 세계의 입구에 서게 된다.",
         desc: "Antigravity CLI 환경에서 전체 공정을 오케스트레이션하고, 최종 승인된 작품의 윤문, 매니페스트 생성 및 출간을 완료합니다.",
-        checklist: ["품질 게이트 최종 판정 수호", "작품 메타데이터 및 매니페스트 동기화", "권말 복선 해설 및 아카이빙"]
+        skills: [
+          "Antigravity CLI 기반 8인 서브에이전트 오케스트레이션",
+          "품질 게이트 최종 판정 및 마스터피스 출간 승인",
+          "메타데이터 매니페스트 생성 및 웹 오피스 동기화"
+        ],
+        hrReview: "지적 카타르시스와 미학적 완성도를 모두 통솔하는 미로공방의 총사령관. 황금 열쇠로 미로의 최종 출구를 열어젖힙니다."
       }
     ];
 
     function openAgentModal(index) {
-      const agent = agentsData[index];
+      const a = agentsData[index];
       const modalBody = document.getElementById("modalBody");
       modalBody.innerHTML = `
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
-          <div style="font-size:36px; padding:12px; background:#1e293b; border-radius:12px; border:1px solid #334155;">
-            ${agent.tool.split(" ")[0]}
+        <div class="dossier-top">
+          <div class="dossier-photo-frame">
+            <img src="${a.photo}" alt="${a.name}">
           </div>
           <div>
-            <span style="color:var(--accent-cyan); font-family:var(--font-mono); font-size:0.85rem;">Agent ${agent.num} • ${agent.file}</span>
-            <h3 style="font-size:1.5rem; color:#fff; font-family:var(--font-serif);">${agent.name} (${agent.role})</h3>
+            <table class="dossier-info-table">
+              <tr>
+                <td class="label">사번 / 코드</td>
+                <td class="value" style="color:var(--accent-cyan); font-family:var(--font-mono);">${a.code}</td>
+              </tr>
+              <tr>
+                <td class="label">성명</td>
+                <td class="value" style="font-size:1.1rem;">${a.name}</td>
+              </tr>
+              <tr>
+                <td class="label">직책 / 직위</td>
+                <td class="value" style="color:var(--accent-gold);">${a.role}</td>
+              </tr>
+              <tr>
+                <td class="label">소속 부서</td>
+                <td class="value">${a.dept}</td>
+              </tr>
+              <tr>
+                <td class="label">상징 도구</td>
+                <td class="value">${a.tool}</td>
+              </tr>
+              <tr>
+                <td class="label">전담 산출물</td>
+                <td class="value" style="font-family:var(--font-mono); color:var(--accent-cyan);">${a.output}</td>
+              </tr>
+            </table>
           </div>
         </div>
-        <div style="background:#090d16; padding:14px; border-radius:8px; border-left:3px solid var(--accent-gold); margin-bottom:20px; font-style:italic; color:var(--text-main);">
-          "${agent.quote}"
+
+        <div class="dossier-quote-box">
+          "${a.quote}"
         </div>
-        <div style="margin-bottom:20px;">
-          <h5 style="color:var(--accent-cyan); margin-bottom:8px; font-size:0.95rem;">🎯 핵심 임무</h5>
-          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.7;">${agent.desc}</p>
-        </div>
-        <div style="margin-bottom:20px;">
-          <h5 style="color:var(--accent-gold); margin-bottom:8px; font-size:0.95rem;">📋 품질 체크리스트</h5>
-          <ul style="padding-left:20px; font-size:0.88rem; color:var(--text-muted); line-height:1.8;">
-            ${agent.checklist.map(c => `<li>${c}</li>`).join("")}
-          </ul>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); padding-top:16px; border-top:1px solid var(--border-color);">
-          <span>상징 도구: ${agent.tool}</span>
-          <span style="color:var(--accent-cyan);">산출: ${agent.output}</span>
+
+        <div class="dossier-section-title">🎯 핵심 임무 및 직무 개요</div>
+        <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.8; margin-bottom:20px;">
+          ${a.desc}
+        </p>
+
+        <div class="dossier-section-title">⚡ 전문 역량 및 스킬셋</div>
+        <ul class="dossier-skills-list">
+          ${a.skills.map(s => `<li>${s}</li>`).join("")}
+        </ul>
+
+        <div class="dossier-section-title">📋 인사 평가 및 추천 소견</div>
+        <div class="dossier-hr-review">
+          ${a.hrReview}
         </div>
       `;
       document.getElementById("agentModal").style.display = "flex";
