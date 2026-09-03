@@ -1,0 +1,25 @@
+{
+  "id": "01_shadow_of_the_clockwork_maze",
+  "title": "시계태엽 미궁의 그림자",
+  "title_en": "Shadow of the Clockwork Maze",
+  "author_agent": "서연우 (미스터리 소설가)",
+  "editor_agent": "반채현 (미로 총괄편집장)",
+  "genre": "밀실 미로 미스터리 / 서스펜스 스릴러",
+  "created_at": "2026-09-04",
+  "word_count": 6850,
+  "rubric_score": 95,
+  "verdict": "PASS",
+  "synopsis": "천재 시계장명 유진우의 거대한 시계태엽 저택 '크로노스 하우스'. 자정이 되면 저택 전체가 3중 동심원 미로로 회전하며 모든 출구가 봉쇄된다. 고립된 4명의 방문자에게 주어진 시간은 단 1시간. 숨겨진 유언장의 암호와 시계추의 진동 속에 숨겨진 20년 전의 비극이 밝혀진다.",
+  "agents_pipeline": [
+    "01_clue_collector",
+    "02_labyrinth_architect",
+    "03_character_psychologist",
+    "04_trick_engineer",
+    "05_mystery_novelist",
+    "06_suspense_editor",
+    "07_logic_examiner",
+    "08_chief_editor"
+  ],
+  "clues_count": 5,
+  "twists_count": 2
+}
